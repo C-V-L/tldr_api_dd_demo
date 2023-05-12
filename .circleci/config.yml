@@ -3,6 +3,11 @@ jobs:
   build:
     docker:
       - image: circleci/python:3.10
+      - image: circleci/postgres:latest
+        environment:
+          POSTGRES_USER: root
+          POSTGRES_DB: circle_test
+          POSTGRES_PASSWORD: postgres
     steps:
       - checkout
       - restore_cache:
