@@ -21,14 +21,16 @@ Including another URLconf
 #     path('admin/', admin.site.urls),
 # ]
 
-from django.urls import include, path
-from rest_framework import routers
-from tldr_app.views import UserViewSet, QueryViewSet  # replace with your app's ViewSet
 
-router = routers.DefaultRouter()
-router.register(r'users', UserViewSet)  # replace 'my-model' with your preferred endpoint
-router.register(r'queries', QueryViewSet)  # replace 'my-model' with your preferred endpoint
+from django.urls import include, path
+from tldr_app.views import (
+    UserApiView,
+    QueryApiView
+)
+from rest_framework import routers
+from rest_framework.renderers import JSONRenderer
 
 urlpatterns = [
-    path('', include(router.urls)),
+    path('api/users', UserApiView.as_view()),
+    path('api/queries', QueryApiView.as_view()),
 ]
