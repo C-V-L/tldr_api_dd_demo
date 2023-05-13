@@ -23,10 +23,11 @@ Including another URLconf
 
 from django.urls import include, path
 from rest_framework import routers
-from tldr_app.views import UserViewSet  # replace with your app's ViewSet
+from tldr_app.views import UserViewSet, QueryViewSet  # replace with your app's ViewSet
 
 router = routers.DefaultRouter()
-router.register(r'root_page', UserViewSet)  # replace 'my-model' with your preferred endpoint
+router.register(r'users', UserViewSet)  # replace 'my-model' with your preferred endpoint
+router.register(r'queries', QueryViewSet)  # replace 'my-model' with your preferred endpoint
 
 urlpatterns = [
     path('', include(router.urls)),
