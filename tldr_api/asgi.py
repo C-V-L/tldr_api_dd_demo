@@ -1,5 +1,5 @@
 """
-ASGI config for TLDR_Directory project.
+ASGI config for tldr_api project.
 
 It exposes the ASGI callable as a module-level variable named ``application``.
 
@@ -11,6 +11,6 @@ import os
 
 from django.core.asgi import get_asgi_application
 
-os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'TLDR_Directory.settings')
+os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'tldr_api.settings')
 
 application = get_asgi_application()

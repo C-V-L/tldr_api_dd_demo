@@ -1,5 +1,5 @@
 """
-URL configuration for TLDR_Directory project.
+URL configuration for tldr_api project.
 
 The `urlpatterns` list routes URLs to views. For more information please see:
     https://docs.djangoproject.com/en/4.2/topics/http/urls/
@@ -23,10 +23,10 @@ Including another URLconf
 
 from django.urls import include, path
 from rest_framework import routers
-from TLDR_Backend_API_App.views import MyModelViewSet  # replace with your app's ViewSet
+from tldr_app.views import UserViewSet  # replace with your app's ViewSet
 
 router = routers.DefaultRouter()
-router.register(r'root_page', MyModelViewSet)  # replace 'my-model' with your preferred endpoint
+router.register(r'root_page', UserViewSet)  # replace 'my-model' with your preferred endpoint
 
 urlpatterns = [
     path('', include(router.urls)),
