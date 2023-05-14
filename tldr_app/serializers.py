@@ -7,6 +7,9 @@ class UserSerializer(serializers.ModelSerializer):
         fields = ['id', 'name']
 
 class QuerySerializer(serializers.ModelSerializer):
+		areas_of_focus = serializers.ListField(required=True)
+		tos = serializers.CharField(required=True),
+
 		class Meta:
 				model = Query
 				fields = ['id', 'user', 'areas_of_focus', 'tos']
