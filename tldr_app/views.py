@@ -7,16 +7,6 @@ from .serializers import UserSerializer, QuerySerializer, ResultSerializer
 from .renderers import CustomJSONRenderer
 from .services import *
 
-# class UserViewSet(viewsets.ModelViewSet):
-#     queryset = User.objects.all().order_by('id')
-#     serializer_class = UserSerializer
-#     renderer_classes = [CustomJSONRenderer]
-    
-# class QueryViewSet(viewsets.ModelViewSet):
-#     queryset = Query.objects.all().order_by('id')
-#     serializer_class = QuerySerializer
-#     renderer_classes = [CustomJSONRenderer]
-
 class UserApiView(APIView):
     renderer_classes = [CustomJSONRenderer]
     
@@ -42,14 +32,15 @@ class QueryApiView(APIView):
       return Response(serializer.data, status=status.HTTP_200_OK)
                 
     def post(self, request, *args, **kwargs):
-      query = Query(user=User.objects.get(id=request.data['user']), areas_of_focus=request.data['areas_of_focus'], tos=request.data['tos'])
-      query.save()
-      result = Result(response=QueryGPT.initiate_query(query.tos), query=query)
-      result.save()
-      serializer = ResultSerializer(result, many=False)
-      # if serializer.is_valid():
-      # serializer.save()
-      import pdb; pdb.set_trace()
-      return Response(serializer.data, status=status.HTTP_201_CREATED)
-      # return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
-      # return Response("string", status=status.HTTP_400_BAD_REQUEST)
+      query_serializer = QuerySerializer(data=request.data)
+
+      if query_serializer.is_valid():
+        validated_data = query_serializer.validated_data
+        query = Query(user=User.objects.get(id=request.data['user']), areas_of_focus=request.data['areas_of_focus'], tos=request.data['tos'])
+        query.save()
+        result = Result(response=QueryGPT.initiate_query(query), query=query)
+        result.save()
+        serializer = ResultSerializer(result, many=False)
+        return Response(serializer.data, status=status.HTTP_201_CREATED)
+      else:
+        return Response(query_serializer.errors, status=status.HTTP_400_BAD_REQUEST)
