@@ -8,7 +8,7 @@ class UserSerializer(serializers.ModelSerializer):
 
 class QuerySerializer(serializers.ModelSerializer):
 		areas_of_focus = serializers.ListField(required=True)
-		tos = serializers.CharField(required=True),
+		tos = serializers.CharField(required=True)
 
 		class Meta:
 				model = Query

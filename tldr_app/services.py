@@ -1,4 +1,4 @@
-import os 
+import os
 from decouple import config
 from llama_index import GPTVectorStoreIndex, SimpleDirectoryReader
 from .models import *
