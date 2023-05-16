@@ -1,3 +1,5 @@
 tldr_api/.env
 __pycache__/
 /.venv
+/.coverage
+/htmlcov
