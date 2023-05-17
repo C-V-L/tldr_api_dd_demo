@@ -82,7 +82,7 @@ WSGI_APPLICATION = 'tldr_api.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
-if os.environ.get('DJANGO_ENV') == 'production':
+if config('DJANGO_ENV') == 'production':
 	DATABASES = {
 		'default': dj_database_url.config(default=config('DATABASE_URL'))
 	}
