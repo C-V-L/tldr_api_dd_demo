@@ -124,6 +124,8 @@ Our web platform is a tool that helps you understand the terms and conditions of
  ## Running the Test Suit
  
  ## Front-End Repository 
+ 
+ [TLDR Front-End Repo](https://github.com/TooLong-DidntRead/tldr_fe)
 
  ## Contributors  
   
