@@ -28,10 +28,4 @@ class QueryGPT():
 			result = Result(response=json.loads(str(response)), query=query)
 			result.save()
 			responses.append(result)
-		# formatted_response = { "concerns": {} }
-		# for response in responses:
-		# 	import pdb; pdb.set_trace()
-		# 	f_response = eval(response)
-		# 	formatted_response["concerns"].update(f_response)
-
 		return responses

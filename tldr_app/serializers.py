@@ -18,4 +18,4 @@ class ResultSerializer(serializers.ModelSerializer):
 		response = serializers.JSONField(required=True)
 		class Meta:
 				model = Result
-				fields = ['id', 'response', 'query']
+				fields = ['response']
