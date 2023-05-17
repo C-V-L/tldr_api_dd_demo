@@ -27,14 +27,13 @@ class QueryApiView(APIView):
 	renderer_classes = [CustomJSONRenderer]
 	
 	def get(self, request, *args, **kwargs):
-		breakpoint()
 		queries = Query.objects.all()
 		serializer = QuerySerializer(queries, many=True)
 		return Response(serializer.data, status=status.HTTP_200_OK)
 							
 	def post(self, request, *args, **kwargs):
+		# import pdb; pdb.set_trace()
 		query_serializer = QuerySerializer(data=request.data)
-		
 		if query_serializer.is_valid():
 			query = query_serializer.save()  
 			result = Result(response=QueryGPT.initiate_query(query), query=query)
