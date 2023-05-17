@@ -9,9 +9,10 @@ https://docs.djangoproject.com/en/4.2/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.2/ref/settings/
 """
-
+import os
 from pathlib import Path
 from decouple import config
+import dj_database_url
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -29,6 +30,9 @@ DEBUG = config('DEBUG', default=False, cast=bool)
 
 ALLOWED_HOSTS = []
 
+RENDER_EXTERNAL_HOSTNAME = os.environ.get('RENDER_EXTERNAL_HOSTNAME')
+if RENDER_EXTERNAL_HOSTNAME:
+    ALLOWED_HOSTS.append(RENDER_EXTERNAL_HOSTNAME)
 
 # Application definition
 
@@ -78,16 +82,21 @@ WSGI_APPLICATION = 'tldr_api.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'tldr_be_database',
-        'USER': config('DB_USER'),
-        'PASSWORD': config('DB_PASSWORD'),
-        'HOST': 'localhost',  # or your PostgreSQL server's IP address
-        'PORT': '5432',
-    }
-}
+if os.environ.get('DJANGO_ENV') == 'production':
+	DATABASES = {
+		'default': dj_database_url.config(default=config('DATABASE_URL'))
+	}
+else:
+	DATABASES = {
+    	'default': {
+        	'ENGINE': config('DB_ENGINE'),
+        	'NAME': config('DB_NAME'),
+        	'USER': config('DB_USER'),
+        	'PASSWORD': config('DB_PASSWORD'),
+        	'HOST': config('DB_HOST'),
+        	'PORT': config('DB_PORT'),
+    	}
+	}
 
 
 # Password validation
