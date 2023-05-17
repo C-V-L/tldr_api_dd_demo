@@ -1,4 +1,4 @@
-# Welcome to TLDR
+## Welcome to TLDR 
 
 ---
 
@@ -37,6 +37,8 @@ Our web platform is a tool that helps you understand the terms and conditions of
 ## Deployment
 ![Render](https://img.shields.io/badge/Render-%46E3B7.svg?style=for-the-badge&logo=render&logoColor=white)
 
+[TLDR Website](https://tldr-api.onrender.com/)
+
 ## Built With
 ![Django](https://img.shields.io/badge/django-%23092E20.svg?style=for-the-badge&logo=django&logoColor=white)
 
@@ -50,14 +52,15 @@ Our web platform is a tool that helps you understand the terms and conditions of
 
 <br>
 
+### Query
+
 <details>
-  
   <summary>POST:User TOS Concerns Summary</summary>
   
   Request:
   
   ```JS
-  POST /api/v1/processTOS
+  POST /api/queries
   ```
   
   Params: 
@@ -82,55 +85,89 @@ Our web platform is a tool that helps you understand the terms and conditions of
 
   ```JSON
 {
-    "data": {
-        "concerns": {
-            "privacy": {
-                "ranking": 10,
-                "impact": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
-                "actionable": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum."
-            },
-            "security": {
-                "ranking": 4,
-                "impact": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
-                "actionable": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum."
-            },
-            "intellectualProperty": {
-                "ranking": 9,
-                "impact": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
-                "actionable": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum."
-            },
-            "liability": {
-                "ranking": 10,
-                "impact": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
-                "actionable": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum."
-            },
-            "cancellation": {
-                "ranking": 3,
-                "impact": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
-                "actionable": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum."
-            },
-            "payment": {
-                "ranking": 1,
-                "impact": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
-                "actionable": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum."
+    "data": [
+        {
+            "response": {
+                "subscription": {
+                    "impact": "The Netflix Terms of Use outlines the subscription service that allows members to access entertainment content over the Internet on certain Internet-connected TV's, computers and other devices. It also outlines the payment method that is charged for the subscription service.",
+                    "actionable": "The Terms of Use outlines the steps that members must take to cancel their subscription service, as well as the steps that must be taken to ensure that the subscription service is not renewed after the cancellation.",
+                    "ranking": 8
+                }
+            }
+        },
+        {
+            "response": {
+                "privacy": {
+                    "impact": "Netflix Inc. states that they may collect personal information from members, including name, address, email address, payment information, and other information. They may also collect information about members' use of the service, such as the titles of movies and TV shows watched and the duration of the viewing session.",
+                    "actionable": "Members can control the amount of personal information they provide to Netflix Inc. by adjusting their account settings. They can also control the amount of information Netflix Inc. collects about their use of the service by adjusting their privacy settings.",
+                    "ranking": 8
+                }
             }
         }
-    }
+    ]
 }
   ```
  </details>
  
  <br>
-  
- ## Running the Test Suit
+ 
+ </details>
 
- 1. `Navigate to desired directory`
- 1. `Run git clone git@github.com:TooLong-DidntRead/tldr_api.git`
- 1. `Run cd tldr_api`
+<br>
+
+---
+
+<br>
+<!-- need to finalize -->
+
+### User
+
+<details>
+  <summary>GET: User</summary>
+  
+  <br>
+  Request:
+
+  ```JS
+  GET /api/users
+  ```
+
+  Params: 
+
+  | Name | Requirement | Type | Description |
+  | ----- | ----------- | -----| -------------- | 
+  | `username` | Required | string | Username
+
+  Response: 
+
+  | Result | Status |
+  | ------- | ------| 
+  | `Success` | 200 |
+  | `Failure`| 401 |
+  | `Internal Server Error` | 500 |
+
+
+   ```JSON
+  {
+    "data": {
+      "id": "1",
+      "name": "user",
+     {
+  }
+  ```
+</details>
+
+<br>
+
+---
+
+ ## Running the Test Suit
+ 
+ 1. `Run python3 -m venv myenv`
  1. `Run pip install -r requirements.txt`
- 1. `Run pip freeze`
  1. `Run python manage.py migrate`
  1. `Run pytest`
+ 1. `Run coverage run --source='tldr_app' -m pytest tldr_app/tests/*.py`
  
  ## Front-End Repository 
  
