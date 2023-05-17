@@ -122,12 +122,22 @@ Our web platform is a tool that helps you understand the terms and conditions of
  <br>
   
  ## Running the Test Suit
+
+ 1. `Navigate to desired directory`
+ 1. `Run git clone git@github.com:TooLong-DidntRead/tldr_api.git`
+ 1. `Run cd tldr_api`
+ 1. `Run pip install -r requirements.txt`
+ 1. `Run pip freeze`
+ 1. `Run python manage.py migrate`
+ 1. `Run pytest`
  
  ## Front-End Repository 
  
  [TLDR Front-End Repo](https://github.com/TooLong-DidntRead/tldr_fe)
 
- ## Contributors  
+ ## Contributors 
+
+| **Isaac Alter** [Github](https://github.com/Isaac3924) | **Jesus Borjas** [Github](https://github.com/Jesusborjas006) | **Chrissy Coope**[Github](https://github.com/chrissycooper) | **Axel De La Guardia**[Github](https://github.com/axeldelaguardia) | **Jason Kirchman**[Github](https://github.com/kirch1) | **Elle Majors**[Github](https://github.com/Elle-M) | **Hady Matar**[Github](https://github.com/hadyematar23) | **Conner Van Loan**[Github](https://github.com/C-V-L) |
   
 
 
