@@ -26,7 +26,10 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = config('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = config('DEBUG', default=False, cast=bool)
+if config('DJANGO_ENV') == 'production':
+		DEBUG = False
+else:
+	DEBUG = config('DEBUG', default=False, cast=bool)
 
 ALLOWED_HOSTS = []
 
@@ -82,7 +85,7 @@ WSGI_APPLICATION = 'tldr_api.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
-if os.environ.get('DJANGO_ENV') == 'production':
+if config('DJANGO_ENV') == 'production':
 	DATABASES = {
 		'default': dj_database_url.config(default=config('DATABASE_URL'))
 	}
