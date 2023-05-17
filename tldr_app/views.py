@@ -35,10 +35,9 @@ class QueryApiView(APIView):
 		# import pdb; pdb.set_trace()
 		query_serializer = QuerySerializer(data=request.data)
 		if query_serializer.is_valid():
-			query = query_serializer.save()  
-			result = Result(response=QueryGPT.initiate_query(query), query=query)
-			result.save()
-			serializer = ResultSerializer(result, many=False)
+			query = query_serializer.save()      
+			results = QueryGPT.initiate_query(query)
+			serializer = ResultSerializer(results, many=True)
 			return Response(serializer.data, status=status.HTTP_201_CREATED)
 		else:
 			return Response(query_serializer.errors, status=status.HTTP_400_BAD_REQUEST)

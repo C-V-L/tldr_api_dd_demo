@@ -1,8 +1,7 @@
 from django.db import models
-from django.contrib.postgres.fields import ArrayField
+from django.contrib.postgres.fields import ArrayField, JSONField
 from django.core.exceptions import ValidationError
 from django.utils.translation import gettext_lazy as _
-
 class User(models.Model):
 	name = models.CharField(max_length=200)
 
@@ -20,7 +19,7 @@ class Query(models.Model):
 			raise ValidationError(_('All fields must be filled in.'))
     
 class Result(models.Model):
-		response = models.TextField()
+		response = models.JSONField(default=dict)
 		query = models.ForeignKey(Query, on_delete=models.CASCADE)
 		
 		def clean(self):

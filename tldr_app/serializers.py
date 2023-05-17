@@ -15,6 +15,7 @@ class QuerySerializer(serializers.ModelSerializer):
 				fields = ['id', 'user', 'areas_of_focus', 'tos']
 
 class ResultSerializer(serializers.ModelSerializer):
+		response = serializers.JSONField(required=True)
 		class Meta:
 				model = Result
 				fields = ['id', 'response', 'query']
