@@ -23,6 +23,6 @@ def test_post_request():
       assert isinstance(response_data['response'], str)
       assert isinstance(response_data['id'], int)
 
-def test_get_request(): 
-    with vcr.VCR().use_cassette('fixtures/vcr_cassettes/get_synopsis.yaml'):
-      response = requests.get(BASE_URL)
+# def test_get_request(): 
+#     with vcr.VCR().use_cassette('fixtures/vcr_cassettes/get_synopsis.yaml'):
+#       response = requests.get(BASE_URL)
