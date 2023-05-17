@@ -27,7 +27,7 @@ SECRET_KEY = config('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 if config('DJANGO_ENV') == 'production':
-		DEBUG = False
+		DEBUG = config('DEBUG')
 else:
 	DEBUG = config('DEBUG', default=False, cast=bool)
 
