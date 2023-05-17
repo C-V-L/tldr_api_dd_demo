@@ -32,7 +32,7 @@
 <!-- 
   | Name | Requirement | Type | Description |
   | ----- | ----------- | -----| -------------- | 
-  | `email` | Required | string | User email
+  | `tos` | Required | string | User email
   | `uid` | Optional | string | Google Oauth2.0 identification
   | `password` | Optional | string | User password -->
 
@@ -87,5 +87,7 @@
     }
 }
   ```
+  
+### Database Schema
 
 
