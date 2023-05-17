@@ -7,7 +7,7 @@ from tldr_app.models import User, Query, Result
 class QueryModelTest(TestCase):
     def test_query(self):
         user = User.objects.create(name="Hady")
-        query = Query.objects.create(user=user, areas_of_focus = ["a", "b"])
+        query = Query.objects.create(user=user, areas_of_focus = ["area", "box"])
         with pytest.raises(ValidationError):
             query.full_clean()
     

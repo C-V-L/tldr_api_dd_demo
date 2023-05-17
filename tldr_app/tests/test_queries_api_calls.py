@@ -18,7 +18,6 @@ def test_post_request():
       response = requests.post(POST_URL, data=json.dumps(payload), headers=headers)
       assert response.status_code == 201
       response_data = response.json()
-      # breakpoint()
       assert isinstance(response_data, dict)
       assert isinstance(response_data['response'], str)
       assert isinstance(response_data['id'], int)
