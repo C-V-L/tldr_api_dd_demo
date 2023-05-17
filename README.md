@@ -1,5 +1,9 @@
 # Welcome to TLDR
 
+---
+
+---
+
 ![tlfr_logo](https://github.com/TooLong-DidntRead/tldr_api/assets/113124260/94245722-0389-4ad1-9fa2-af8136e8368b)
 
 ## Table of Contents
@@ -39,22 +43,15 @@ Our web platform is a tool that helps you understand the terms and conditions of
 
 ![CircleCI](https://img.shields.io/badge/circleci-343434?style=for-the-badge&logo=circleci&logoColor=white)
 
-<br>
-
 ## Database Schema
 
 ## Endpoints
 
----
-
----
-
 <br>
 
 <details>
-  <summary>POST:User TOS Concerns Summary</summary>
   
-  <br>
+  <summary>POST:User TOS Concerns Summary</summary>
   
   Request:
   
@@ -63,13 +60,11 @@ Our web platform is a tool that helps you understand the terms and conditions of
   ```
   
   Params: 
-<!-- 
+
   | Name | Requirement | Type | Description |
   | ----- | ----------- | -----| -------------- | 
-  | `tos` | Required | string | User email
-  | `uid` | Optional | string | Google Oauth2.0 identification
-  | `password` | Optional | string | User password -->
-
+  | `tos` | Required | string | Terms of Service
+  | `concerns` | Optional | string | User Concerns
 
   <i>Note: </i>
 
@@ -81,6 +76,7 @@ Our web platform is a tool that helps you understand the terms and conditions of
   | ------- | ------| 
   | `Success` | 201 |
   | `Failure`| 401 |
+  | `Internal Server Error` | 500 |
 
 
   ```JSON
