@@ -34,9 +34,10 @@ Our web platform is a tool that helps you understand the terms and conditions of
 * Follow-up Actions Automation: To enable users to take follow-up actions with ease, we need to build out a system for automating tasks such as generating emails, creating events in Google Calendar, and sending reminders. This will help users take control of their interactions with service providers and protect their interests.
 * Scalability: As the user base grows, we need to ensure that our platform is scalable and can handle large volumes of data and traffic. We need to implement best practices for performance optimization, load balancing, and fault tolerance to ensure that the platform remains stable and reliable.
 
-## Deployment 
+## Deployment
+![Render](https://img.shields.io/badge/Render-%46E3B7.svg?style=for-the-badge&logo=render&logoColor=white)
 
-## Built with:
+## Built With
 ![Django](https://img.shields.io/badge/django-%23092E20.svg?style=for-the-badge&logo=django&logoColor=white)
 
 ![PostgreSQL](https://img.shields.io/badge/PostgreSQL-316192?style=for-the-badge&logo=postgresql&logoColor=white)
@@ -137,7 +138,7 @@ Our web platform is a tool that helps you understand the terms and conditions of
 
  ## Contributors 
 
-| **Isaac Alter** [Github](https://github.com/Isaac3924) | **Jesus Borjas** [Github](https://github.com/Jesusborjas006) | **Chrissy Coope**[Github](https://github.com/chrissycooper) | **Axel De La Guardia**[Github](https://github.com/axeldelaguardia) | **Jason Kirchman**[Github](https://github.com/kirch1) | **Elle Majors**[Github](https://github.com/Elle-M) | **Hady Matar**[Github](https://github.com/hadyematar23) | **Conner Van Loan**[Github](https://github.com/C-V-L) |
+| **Isaac Alter** [Github](https://github.com/Isaac3924) | **Jesus Borjas** [Github](https://github.com/Jesusborjas006) | **Chrissy Coope** [Github](https://github.com/chrissycooper) | **Axel De La Guardia** [Github](https://github.com/axeldelaguardia) | **Jason Kirchman** [Github](https://github.com/kirch1) | **Elle Majors** [Github](https://github.com/Elle-M) | **Hady Matar** [Github](https://github.com/hadyematar23) | **Conner Van Loan** [Github](https://github.com/C-V-L) |
   
 
 
