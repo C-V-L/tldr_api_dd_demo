@@ -1,6 +1,29 @@
-# tldr_api
-Request:
+# Welcome to TLDR
 
+### Built with:
+![Django](https://img.shields.io/badge/django-%23092E20.svg?style=for-the-badge&logo=django&logoColor=white)
+
+![PostgreSQL](https://img.shields.io/badge/PostgreSQL-316192?style=for-the-badge&logo=postgresql&logoColor=white)
+
+![CircleCI](https://img.shields.io/badge/circleci-343434?style=for-the-badge&logo=circleci&logoColor=white)
+
+<br>
+
+## Endpoints
+
+---
+
+---
+
+<br>
+
+<details>
+  <summary>POST:User TOS Concerns Summary</summary>
+  
+  <br>
+  
+  Request:
+  
   ```JS
   POST /api/v1/processTOS
   ```
