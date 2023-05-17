@@ -23,6 +23,7 @@ Including another URLconf
 
 
 from django.urls import include, path
+from tldr_app.views import HealthCheckView
 from tldr_app.views import (
     UserApiView,
     QueryApiView
@@ -33,4 +34,5 @@ from rest_framework.renderers import JSONRenderer
 urlpatterns = [
     path('api/users', UserApiView.as_view()),
     path('api/queries', QueryApiView.as_view()),
+    path('healthcheck/', HealthCheckView.as_view(), name='healthcheck'),
 ]

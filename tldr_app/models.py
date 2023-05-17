@@ -25,3 +25,11 @@ class Result(models.Model):
 		def clean(self):
 			if not self.response or not self.query:
 				raise ValidationError(_('All fields must be filled in.'))
+			
+# class false(models.Model):
+#     response = models.TextField()
+#     query = models.ForeignKey(Query, on_delete=models.CASCADE)
+    
+#     def clean(self):
+#       if not self.response or not self.query:
+#         raise ValidationError(_('All fields must be filled in.'))

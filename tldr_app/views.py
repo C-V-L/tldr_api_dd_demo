@@ -1,4 +1,6 @@
 from django.shortcuts import render
+from django.views import View
+from django.http import HttpResponse
 from rest_framework import viewsets, generics, status
 from rest_framework.views import APIView
 from rest_framework.response import Response
@@ -6,6 +8,10 @@ from .models import *
 from .serializers import UserSerializer, QuerySerializer, ResultSerializer
 from .renderers import CustomJSONRenderer
 from .services import *
+
+class HealthCheckView(View):
+	def get(self, request):
+		return HttpResponse(status=200)
 
 class UserApiView(APIView):
 	renderer_classes = [CustomJSONRenderer]
