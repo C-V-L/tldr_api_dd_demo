@@ -32,7 +32,7 @@ from rest_framework import routers
 from rest_framework.renderers import JSONRenderer
 
 urlpatterns = [
-    path('api/users', UserApiView.as_view()),
-    path('api/queries', QueryApiView.as_view()),
+    path('api/v1/users', UserApiView.as_view()),
+    path('api/v1/queries', QueryApiView.as_view()),
     path('healthcheck', HealthCheckView.as_view(), name='healthcheck'),
 ]
