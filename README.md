@@ -17,7 +17,7 @@
 - [Front-End Repository](#front-end-respository)
 - [Contributors](#contributors)
 
-Product Overview
+## Product Overview
 
 Our web platform is a tool that helps you understand the terms and conditions of services you sign up for in a simpler way. Instead of having to read through long and complex legal documents, you can copy and paste them into our platform and select the things you're most concerned about, like privacy or recurring payments. Our platform will then show you a summary of how those specific things might affect you, with an overall score that helps you see how good or bad they are. We also give you suggestions for what you can do if you don't like what you see. We want to make it easier for you to understand what you're agreeing to when you use a service, and help you protect your rights.
 
