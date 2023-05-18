@@ -36,6 +36,8 @@ ALLOWED_HOSTS = []
 RENDER_EXTERNAL_HOSTNAME = os.environ.get('RENDER_EXTERNAL_HOSTNAME')
 if RENDER_EXTERNAL_HOSTNAME:
     ALLOWED_HOSTS.append(RENDER_EXTERNAL_HOSTNAME)
+    
+CORS_ALLOW_ALL_ORIGINS = True
 
 # Application definition
 
@@ -48,10 +50,12 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'rest_framework', 
     'tldr_app',
+    'corsheaders',
     'tldr_api'
 ]
 
 MIDDLEWARE = [
+    'corsheaders.middleware.CorsMiddleware', # CORS
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
