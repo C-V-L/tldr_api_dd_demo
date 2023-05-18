@@ -151,7 +151,7 @@ Our web platform is a tool that helps you understand the terms and conditions of
     "data": {
       "id": "1",
       "name": "user",
-     {
+    }
   }
   ```
 </details>
