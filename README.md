@@ -60,7 +60,7 @@ Our web platform is a tool that helps you understand the terms and conditions of
   Request:
   
   ```JS
-  POST /api/queries
+  POST /api/v1/queries
   ```
   
   Params: 
@@ -70,8 +70,7 @@ Our web platform is a tool that helps you understand the terms and conditions of
   | `tos` | Required | string | Terms of Service
   | `concerns` | Optional | string | User Concerns
 
-  <i>Note: </i>
-
+<!--   <i>Note: </i> -->
   <br>
 
   Response: 
@@ -118,7 +117,7 @@ Our web platform is a tool that helps you understand the terms and conditions of
 ---
 
 <br>
-<!-- need to finalize -->
+
 
 ### User
 
@@ -129,7 +128,7 @@ Our web platform is a tool that helps you understand the terms and conditions of
   Request:
 
   ```JS
-  GET /api/users
+  GET /api/v1/users
   ```
 
   Params: 
