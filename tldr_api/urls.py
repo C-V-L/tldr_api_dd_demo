@@ -34,5 +34,5 @@ from rest_framework.renderers import JSONRenderer
 urlpatterns = [
     path('api/users', UserApiView.as_view()),
     path('api/queries', QueryApiView.as_view()),
-    path('healthcheck/', HealthCheckView.as_view(), name='healthcheck'),
+    path('healthcheck', HealthCheckView.as_view(), name='healthcheck'),
 ]
