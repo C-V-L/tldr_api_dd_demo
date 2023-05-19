@@ -92,3 +92,25 @@ def test_post_individual_unit_test(db):
             assert response.status_code == status.HTTP_201_CREATED
 
             mock_save.assert_called_once()
+
+def test_post_individual_nonvalid_unit_test(db):
+    user = User.objects.create(name="Isaac")
+    query = Query.objects.create(user=user, tos="invalidtest", areas_of_focus=["payment", "subscription"])
+    result = Result.objects.create(query=query, response="This is an invalid test response")
+    
+    factory = RequestFactory()
+    request = factory.post('/fake-url/', data= {"areas_of_focus": 9, "tos" :"sample TOS", "user": user.id}) 
+
+    with patch('tldr_app.serializers.QuerySerializer.is_valid') as mock_is_valid:
+        mock_is_valid.return_value = False
+
+    # with patch('tldr_app.services.QueryGPT.initiate_query') as mock_initiate_query:
+            # mock_initiate_query.return_value = [result]
+
+    request.data = request.POST  # Assign the data from POST to request.data
+
+    response = QueryApiView().post(request)
+
+    assert response.status_code == status.HTTP_400_BAD_REQUEST
+
+    # mock_save.assert_called_once()
