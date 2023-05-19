@@ -15,7 +15,11 @@ class QuerySerializer(serializers.ModelSerializer):
 				fields = ['id', 'user', 'areas_of_focus', 'tos']
 
 class ResultSerializer(serializers.ModelSerializer):
-		response = serializers.JSONField(required=True)
-		class Meta:
-				model = Result
-				fields = ['response']
+    title = serializers.CharField(source='response.title')
+    impact = serializers.CharField(source='response.impact')
+    actionable = serializers.CharField(source='response.actionable')
+    ranking = serializers.IntegerField(source='response.ranking')
+
+    class Meta:
+        model = Result
+        fields = ['title', 'impact', 'actionable', 'ranking']
