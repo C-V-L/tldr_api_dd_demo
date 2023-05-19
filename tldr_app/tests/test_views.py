@@ -6,7 +6,15 @@ import vcr
 # from django.urls import reverse
 from rest_framework.test import APIClient
 from django.test import Client
-from tldr_app.models import User, Query
+# from tldr_app.models import Query
+from django.test import RequestFactory
+from unittest.mock import patch, MagicMock
+from tldr_app.views import QueryApiView
+from rest_framework import status
+from tldr_app.models import *
+from tldr_app.serializers import QuerySerializer
+from tldr_app.services import QueryGPT
+
 
 client = APIClient()
 
@@ -21,6 +29,7 @@ def test_get_all_users(db):
     response = client.get(url)
     assert response.status_code == 200
     assert response.data[0]["name"] == "Hady"
+    assert len(response.data) == 1
 
 def test_create_user(db):
     url = 'http://localhost:8000/api/v1/users'
@@ -40,7 +49,6 @@ def test_get_all_queries(db):
     Query.objects.create(user=user, tos="test", areas_of_focus=["payment", "subscription"])
     url = 'http://localhost:8000/api/v1/queries'
     response = client.get(url)
-    breakpoint()
     assert response.status_code == 200
     assert response.data[0]["tos"] =="test"
 
@@ -48,14 +56,14 @@ def test_get_all_queries(db):
 
 POST_URL = 'http://localhost:8000/api/queries'
 
-def test_post_request():
+def test_post_request_make_query():
     payload = {
       "user": 1,
       "areas_of_focus": ["mandatory binding arbitration", "recurring payments"],
       "tos": "Netflix Terms of Use\nNetflix provides a personalized subscription service that allows our members to access entertainment content "
     }
     headers = {'Content-Type': 'application/json'}
-
+    breakpoint()
     with vcr.VCR().use_cassette('fixtures/vcr_cassettes/synopsis.yaml'):
       response = requests.post(POST_URL, data=json.dumps(payload), headers=headers)
       assert response.status_code == 201
@@ -64,6 +72,20 @@ def test_post_request():
       assert isinstance(response_data['response'], str)
       assert isinstance(response_data['id'], int)
 
-# def test_get_request(): 
-#     with vcr.VCR().use_cassette('fixtures/vcr_cassettes/get_synopsis.yaml'):
-#       response = requests.get(BASE_URL)
+def test_post_individual_unit_test(db):
+    random = User.objects.create(name="Hady")
+
+    factory = RequestFactory()
+    request = factory.post(data='/fake-url/', request={"areas_of_focus": ["area", "focus"], "tos" :"sample TOS", "user": random.id}) 
+
+    with patch('tldr_app.serializers.QuerySerializer.save') as mock_save:
+        mock_save.return_value = MagicMock()
+
+        with patch('tldr_app.services.QueryGPT.initiate_query') as mock_initiate_query:
+            mock_initiate_query.return_value = ["empty value"]
+
+            response = QueryApiView().post(request)
+
+            assert response.status_code == status.HTTP_201_CREATED
+
+            mock_save.assert_called_once()
