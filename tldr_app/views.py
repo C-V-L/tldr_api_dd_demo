@@ -38,7 +38,6 @@ class QueryApiView(APIView):
 		return Response(serializer.data, status=status.HTTP_200_OK)
 							
 	def post(self, request, *args, **kwargs):
-		# import pdb; pdb.set_trace()
 		query_serializer = QuerySerializer(data=request.data)
 		if query_serializer.is_valid():
 			query = query_serializer.save()      
