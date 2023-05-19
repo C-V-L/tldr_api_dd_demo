@@ -63,7 +63,6 @@ def test_post_request_make_query():
       "tos": "Netflix Terms of Use\nNetflix provides a personalized subscription service that allows our members to access entertainment content "
     }
     headers = {'Content-Type': 'application/json'}
-    breakpoint()
     with vcr.VCR().use_cassette('fixtures/vcr_cassettes/synopsis.yaml'):
       response = requests.post(POST_URL, data=json.dumps(payload), headers=headers)
       assert response.status_code == 201
@@ -73,16 +72,20 @@ def test_post_request_make_query():
       assert isinstance(response_data['id'], int)
 
 def test_post_individual_unit_test(db):
-    random = User.objects.create(name="Hady")
-
+    user = User.objects.create(name="Hady")
+    query = Query.objects.create(user=user, tos="test", areas_of_focus=["payment", "subscription"])
+    result = Result.objects.create(query=query, response="This is a test response")
+    
     factory = RequestFactory()
-    request = factory.post(data='/fake-url/', request={"areas_of_focus": ["area", "focus"], "tos" :"sample TOS", "user": random.id}) 
+    request = factory.post('/fake-url/', data= {"areas_of_focus": ["area", "focus"], "tos" :"sample TOS", "user": user.id}) 
 
     with patch('tldr_app.serializers.QuerySerializer.save') as mock_save:
         mock_save.return_value = MagicMock()
 
         with patch('tldr_app.services.QueryGPT.initiate_query') as mock_initiate_query:
-            mock_initiate_query.return_value = ["empty value"]
+            mock_initiate_query.return_value = [result]
+
+            request.data = request.POST  # Assign the data from POST to request.data
 
             response = QueryApiView().post(request)
 
