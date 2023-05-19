@@ -99,18 +99,20 @@ def test_post_individual_nonvalid_unit_test(db):
     result = Result.objects.create(query=query, response="This is an invalid test response")
     
     factory = RequestFactory()
-    request = factory.post('/fake-url/', data= {"areas_of_focus": 9, "tos" :"sample TOS", "user": user.id}) 
+    request = factory.post('/fake-url/')
+    request.data = {"areas_of_focus": 9, "tos": "sample TOS", "user": user.id}
 
-    with patch('tldr_app.serializers.QuerySerializer.is_valid') as mock_is_valid:
-        mock_is_valid.return_value = False
-
-    # with patch('tldr_app.services.QueryGPT.initiate_query') as mock_initiate_query:
-            # mock_initiate_query.return_value = [result]
-
-    request.data = request.POST  # Assign the data from POST to request.data
+    with patch('tldr_app.views.QuerySerializer') as mock_query_serializer:
+        mock_instance = mock_query_serializer.return_value
+        mock_instance.is_valid.return_value = False
 
     response = QueryApiView().post(request)
 
     assert response.status_code == status.HTTP_400_BAD_REQUEST
 
-    # mock_save.assert_called_once()
+    #Further suggestion is to include the bottom two lines of code to ensure the QuerySerializer was at least called once, 
+    #but that would call for further refactoring to use django.http's QueryDict and rest_framework.test's APIRequestFactory.
+    #Ulitmately, the else condition of the QueryApiView's post method is being hit and tested, so I think this is sufficient.
+
+    # mock_query_serializer.assert_called_once_with(data=request.data)
+    # mock_instance.is_valid.assert_called_once()

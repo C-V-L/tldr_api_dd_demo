@@ -38,14 +38,11 @@ class QueryApiView(APIView):
 		return Response(serializer.data, status=status.HTTP_200_OK)
 							
 	def post(self, request, *args, **kwargs):
-		breakpoint()
 		query_serializer = QuerySerializer(data=request.data)
 		if query_serializer.is_valid():
-			breakpoint()
 			query = query_serializer.save()      
 			results = QueryGPT.initiate_query(query)
 			serializer = ResultSerializer(results, many=True)
 			return Response(serializer.data, status=status.HTTP_201_CREATED)
 		else:
-			breakpoint()
 			return Response(query_serializer.errors, status=status.HTTP_400_BAD_REQUEST)
