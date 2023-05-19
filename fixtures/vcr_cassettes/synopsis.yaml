@@ -17,40 +17,37 @@ interactions:
       User-Agent:
       - python-requests/2.29.0
     method: POST
-    uri: http://localhost:8000/api/queries
+    uri: http://localhost:8000/api/v1/queries
   response:
     body:
-      string: '{"id":20,"response":"[\"\\nAREA OF FOCUS: mandatory binding arbitration
-        \\nREQUEST 1: Netflix''s Terms of Use states that all disputes between the
-        company and its members must be resolved through binding arbitration. This
-        means that any disputes must be settled through a third-party arbitrator,
-        rather than through a court of law. \\nREQUEST 2: The Terms of Use outlines
-        the steps that members can take to protect themselves in the event of a dispute.
-        These steps include filing a claim with the arbitrator, providing evidence
-        to support the claim, and attending the arbitration hearing. \\nREQUEST 3:
-        8.\", ''\\nAREA OF FOCUS: recurring payments \\nREQUEST 1: Netflix allows
-        members to pay for their subscription on a monthly basis. The terms of service
-        outline that members will be charged on a recurring basis until they cancel
-        their subscription. \\nREQUEST 2: The terms of service outline that members
-        can cancel their subscription at any time. Members can also change their payment
-        method or update their billing information. \\nREQUEST 3: 8'']","query":36}'
+      string: '{"data":[{"title":"mandatory binding arbitration","impact":"The terms
+        of service state that any dispute between the user and Netflix must be resolved
+        through binding arbitration. This means that the user cannot take Netflix
+        to court and must instead resolve any disputes through arbitration.","actionable":"The
+        user can opt out of the arbitration clause by sending a written notice to
+        Netflix within 30 days of agreeing to the terms of service.","ranking":5},{"title":"recurring
+        payments","impact":"Netflix''s terms of service outlines that members will
+        be charged a recurring fee for their subscription service. The terms of service
+        also outlines that members can cancel their subscription at any time.","actionable":"Members
+        can cancel their subscription at any time by visiting their account page and
+        selecting the cancel subscription option.","ranking":8}]}'
     headers:
       Allow:
       - GET, POST, HEAD, OPTIONS
       Content-Length:
-      - '1061'
+      - '860'
       Content-Type:
       - application/json
       Cross-Origin-Opener-Policy:
       - same-origin
       Date:
-      - Tue, 16 May 2023 11:39:31 GMT
+      - Fri, 19 May 2023 16:47:36 GMT
       Referrer-Policy:
       - same-origin
       Server:
-      - WSGIServer/0.2 CPython/3.11.3
+      - WSGIServer/0.2 CPython/3.10.10
       Vary:
-      - Cookie
+      - Cookie, origin
       X-Content-Type-Options:
       - nosniff
       X-Frame-Options:
