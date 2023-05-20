@@ -63,6 +63,8 @@ def test_post_request_make_query():
       "tos": "Netflix Terms of Use\nNetflix provides a personalized subscription service that allows our members to access entertainment content "
     }
     headers = {'Content-Type': 'application/json'}
+    # This is the path to the cassette that was being used in the previosu test file test_queries_api_calls.py It's being
+    # used here now and should be passing all below tests.
     with vcr.VCR().use_cassette('fixtures/vcr_cassettes/synopsis.yaml'):
       response = requests.post(POST_URL, data=json.dumps(payload), headers=headers)
       assert response.status_code == 201
