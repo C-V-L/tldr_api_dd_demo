@@ -212,7 +212,7 @@ interactions:
       Accept-Encoding:
       - gzip, deflate
       Authorization:
-      - Bearer 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
+      - Bearer open_ai
       Connection:
       - keep-alive
       Content-Length:
@@ -422,7 +422,7 @@ interactions:
       Accept-Encoding:
       - gzip, deflate
       Authorization:
-      - Bearer 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
+      - Bearer open_ai_api_key
       Connection:
       - keep-alive
       Content-Length:
@@ -527,7 +527,7 @@ interactions:
       Accept-Encoding:
       - gzip, deflate
       Authorization:
-      - Bearer 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
+      - Bearer open_ai  
       Connection:
       - keep-alive
       Content-Length:
@@ -736,7 +736,7 @@ interactions:
       Accept-Encoding:
       - gzip, deflate
       Authorization:
-      - Bearer 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
+      - Bearer open_ai  
       Connection:
       - keep-alive
       Content-Length:
