@@ -85,7 +85,7 @@ def test_post_request_make_query():
 def test_post_individual_unit_test(db):
     user = User.objects.create(name="Hady")
     query = Query.objects.create(user=user, tos="test", areas_of_focus=["payment", "subscription"])
-    result = Result.objects.create(query=query, response="This is a test response")
+    result = Result.objects.create(query=query, response={"title": "Test title", "impact": "Test impact", "actionable": "Test actionable", "ranking": 1})
     
     factory = RequestFactory()
     request = factory.post('/fake-url/', data= {"areas_of_focus": ["area", "focus"], "tos" :"sample TOS", "user": user.id}) 
