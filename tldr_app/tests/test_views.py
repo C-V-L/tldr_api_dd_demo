@@ -15,7 +15,7 @@ from tldr_app.models import *
 from tldr_app.serializers import QuerySerializer
 from tldr_app.services import QueryGPT
 
-
+# Perhaps another push will rectofy this issue
 client = APIClient()
 
 def test_health_check_view():
