@@ -26,26 +26,26 @@ interactions:
         to court and must instead resolve any disputes through arbitration.","actionable":"The
         user can opt out of the arbitration clause by sending a written notice to
         Netflix within 30 days of agreeing to the terms of service.","ranking":5},{"title":"recurring
-        payments","impact":"Netflix''s terms of service allow for recurring payments,
-        and members are required to provide payment information to Netflix in order
-        to access the service. Members are also required to keep their payment information
-        up to date.","actionable":"Members can cancel their subscription at any time,
-        and can update their payment information at any time.","ranking":8}]}'
+        payments","impact":"Netflix''s terms of service outlines that members will
+        be charged a recurring fee for their subscription service. The terms of service
+        also outlines that members can cancel their subscription at any time.","actionable":"Members
+        can cancel their subscription at any time by visiting their account page and
+        selecting the cancel subscription option.","ranking":8}]}'
     headers:
       Allow:
       - GET, POST, HEAD, OPTIONS
       Content-Length:
-      - '862'
+      - '860'
       Content-Type:
       - application/json
       Cross-Origin-Opener-Policy:
       - same-origin
       Date:
-      - Fri, 19 May 2023 17:28:39 GMT
+      - Sun, 21 May 2023 00:22:55 GMT
       Referrer-Policy:
       - same-origin
       Server:
-      - WSGIServer/0.2 CPython/3.10.10
+      - WSGIServer/0.2 CPython/3.11.3
       Vary:
       - Cookie, origin
       X-Content-Type-Options:
