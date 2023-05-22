@@ -35,9 +35,18 @@ Our web platform is a tool that helps you understand the terms and conditions of
 * Scalability: As the user base grows, we need to ensure that our platform is scalable and can handle large volumes of data and traffic. We need to implement best practices for performance optimization, load balancing, and fault tolerance to ensure that the platform remains stable and reliable.
 
 ## Deployment
+
+### Back-End
+
 ![Render](https://img.shields.io/badge/Render-%46E3B7.svg?style=for-the-badge&logo=render&logoColor=white)
 
-[TLDR Website](https://tldr-api.onrender.com/)
+[TLDR API Website](https://tldr-api.onrender.com/)
+
+### Front-End
+
+![Vercel](https://img.shields.io/badge/vercel-%23000000.svg?style=for-the-badge&logo=vercel&logoColor=white)
+
+[TLDR Website](https://tldr-tos.vercel.app/login)
 
 ## Built With
 ![Django](https://img.shields.io/badge/django-%23092E20.svg?style=for-the-badge&logo=django&logoColor=white)
@@ -46,6 +55,7 @@ Our web platform is a tool that helps you understand the terms and conditions of
 
 ![CircleCI](https://img.shields.io/badge/circleci-343434?style=for-the-badge&logo=circleci&logoColor=white)
 
+<!-- ![ChatGPT](https://img.shields.io/badge/chatGPT-74aa9c?style=for-the-badge&logo=openai&logoColor=white) -->
 ## Database Schema
 
 ## Endpoints
@@ -151,7 +161,7 @@ Our web platform is a tool that helps you understand the terms and conditions of
     "data": {
       "id": "1",
       "name": "user",
-     {
+     }
   }
   ```
 </details>
@@ -174,7 +184,7 @@ Our web platform is a tool that helps you understand the terms and conditions of
 
  ## Contributors 
 
-| **Isaac Alter** [Github](https://github.com/Isaac3924) | **Jesus Borjas** [Github](https://github.com/Jesusborjas006) | **Chrissy Coope** [Github](https://github.com/chrissycooper) | **Axel De La Guardia** [Github](https://github.com/axeldelaguardia) | **Jason Kirchman** [Github](https://github.com/kirch1) | **Elle Majors** [Github](https://github.com/Elle-M) | **Hady Matar** [Github](https://github.com/hadyematar23) | **Conner Van Loan** [Github](https://github.com/C-V-L) |
+| **Isaac Alter** [Github](https://github.com/Isaac3924) [LinkedIn](https://www.linkedin.com/in/isaacalter) | **Jesus Borjas** [Github](https://github.com/Jesusborjas006) [LinkedIn](https://www.linkedin.com/in/jesus-borjas-6589b920a) | **Chrissy Coope** [Github](https://github.com/chrissycooper) [LinkedIn](https://www.linkedin.com/in/christinercooper) | **Axel De La Guardia** [Github](https://github.com/axeldelaguardia) [LinkedIn](https://www.linkedin.com/in/axeldelaguardia) | **Jason Kirchman** [Github](https://github.com/kirch1) [LinkedIn](https://www.linkedin.com/in/jason-kirchman) | **Elle Majors** [Github](https://github.com/Elle-M) [LinkedIn](https://www.linkedin.com/in/ellemajors) | **Hady Matar** [Github](https://github.com/hadyematar23) [LinkedIn](https://www.linkedin.com/in/hady-emmanuel-matar) | **Conner Van Loan** [Github](https://github.com/C-V-L) [LinkedIn](https://www.linkedin.com/in/conner-van-loan) |
   
 
 
