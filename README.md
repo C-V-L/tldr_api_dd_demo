@@ -160,7 +160,7 @@ Our web platform is a tool that helps you understand the terms and conditions of
 
 ---
 
- ## Running the Test Suit
+ ## Running the Test Suite
  
  1. `Run python3 -m venv myenv`
  1. `Run pip install -r requirements.txt`
@@ -174,7 +174,7 @@ Our web platform is a tool that helps you understand the terms and conditions of
 
  ## Contributors 
 
-| **Isaac Alter** [Github](https://github.com/Isaac3924) | **Jesus Borjas** [Github](https://github.com/Jesusborjas006) | **Chrissy Coope** [Github](https://github.com/chrissycooper) | **Axel De La Guardia** [Github](https://github.com/axeldelaguardia) | **Jason Kirchman** [Github](https://github.com/kirch1) | **Elle Majors** [Github](https://github.com/Elle-M) | **Hady Matar** [Github](https://github.com/hadyematar23) | **Conner Van Loan** [Github](https://github.com/C-V-L) |
+| **Isaac Alter** [Github](https://github.com/Isaac3924) | **Jesus Borjas** [Github](https://github.com/Jesusborjas006) | **Chrissy Cooper** [Github](https://github.com/chrissycooper) | **Axel De La Guardia** [Github](https://github.com/axeldelaguardia) | **Jason Kirchman** [Github](https://github.com/kirch1) | **Elle Majors** [Github](https://github.com/Elle-M) | **Hady Matar** [Github](https://github.com/hadyematar23) | **Conner Van Loan** [Github](https://github.com/C-V-L) |
   
 
 
