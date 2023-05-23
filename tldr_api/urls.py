@@ -26,7 +26,8 @@ from django.urls import include, path
 from tldr_app.views import HealthCheckView
 from tldr_app.views import (
     UserApiView,
-    QueryApiView
+    QueryApiView,
+    CompareApiView
 )
 from rest_framework import routers
 from rest_framework.renderers import JSONRenderer
@@ -34,5 +35,6 @@ from rest_framework.renderers import JSONRenderer
 urlpatterns = [
     path('api/v1/users', UserApiView.as_view()),
     path('api/v1/queries', QueryApiView.as_view()),
+    path('api/v1/compare', CompareApiView.as_view()),
     path('healthcheck', HealthCheckView.as_view(), name='healthcheck'),
 ]
