@@ -56,17 +56,21 @@ def test_get_all_queries(db):
 
 POST_URL = 'http://localhost:8000/api/v1/queries'
 
+my_vcr = vcr.VCR(
+    filter_headers=['Authorization'],
+)
 def test_post_request_make_query():
     payload = {
-      "user": 1,
+      "user": 6,
       "areas_of_focus": ["mandatory binding arbitration", "recurring payments"],
       "tos": "Netflix Terms of Use\nNetflix provides a personalized subscription service that allows our members to access entertainment content "
     }
     headers = {'Content-Type': 'application/json'}
     # This is the path to the cassette that was being used in the previosu test file test_queries_api_calls.py It's being
     # used here now and should be passing all below tests.
-    with vcr.VCR().use_cassette('fixtures/vcr_cassettes/synopsis.yaml'):
+    with my_vcr.use_cassette('fixtures/vcr_cassettes/synopsis3.yaml'):
       response = requests.post(POST_URL, data=json.dumps(payload), headers=headers)
+    #   breakpoint()
       assert response.status_code == 201
       response_data = response.json()
       assert isinstance(response_data, dict)

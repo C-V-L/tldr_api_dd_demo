@@ -7,7 +7,7 @@ import json
 
 class QueryGPT():	
   os.environ['OPENAI_API_KEY'] = config('OPENAI_API_KEY')
-  def initiate_query(query):
+  def initiate_query(self, query):
     query_to_file(query)
     query_engine = create_query_engine()
     responses = []

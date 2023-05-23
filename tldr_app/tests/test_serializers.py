@@ -7,7 +7,6 @@
 from tldr_app.models import User
 from tldr_app.serializers import QuerySerializer
 
-
 def test_query_serializer(db):
     random_user = User.objects.create(name="Hady")
     request_data= {"areas_of_focus":["area", "focus"], "tos" :"sample TOS", "user": random_user.id} 
