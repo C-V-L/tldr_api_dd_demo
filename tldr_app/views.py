@@ -45,10 +45,9 @@ class QueryApiView(APIView):
 			query_serializer = QuerySerializer(data=process_request_data(request.data))
 		else:
 			query_serializer = QuerySerializer(data=request.data)
-
 		if query_serializer.is_valid():
 			query = query_serializer.save()
-			results = QueryGPT.initiate_query(query)
+			results = QueryGPT.initiate_query(self, query)
 			serializer = ResultSerializer(results, many=True)
 			return Response(serializer.data, status=status.HTTP_201_CREATED)
 		else:
