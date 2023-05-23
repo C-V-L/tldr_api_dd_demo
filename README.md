@@ -57,7 +57,7 @@ Our web platform is a tool that helps you understand the terms and conditions of
 
 ![ChatGPT](https://img.shields.io/badge/chatGPT-74aa9c?style=for-the-badge&logo=openai&logoColor=white)
 
-## Database Schema
+<!-- ## Database Schema -->
 
 ## Endpoints
 
@@ -171,7 +171,7 @@ Our web platform is a tool that helps you understand the terms and conditions of
 
 ---
 
- ## Running the Test Suit
+ ## Running the Test Suite
  
  1. `Run python3 -m venv myenv`
  1. `Run pip install -r requirements.txt`
@@ -186,6 +186,7 @@ Our web platform is a tool that helps you understand the terms and conditions of
  ## Contributors 
 
 | **Isaac Alter** [Github](https://github.com/Isaac3924) [LinkedIn](https://www.linkedin.com/in/isaacalter) | **Jesus Borjas** [Github](https://github.com/Jesusborjas006) [LinkedIn](https://www.linkedin.com/in/jesus-borjas-6589b920a) | **Chrissy Coope** [Github](https://github.com/chrissycooper) [LinkedIn](https://www.linkedin.com/in/christinercooper) | **Axel De La Guardia** [Github](https://github.com/axeldelaguardia) [LinkedIn](https://www.linkedin.com/in/axeldelaguardia) | **Jason Kirchman** [Github](https://github.com/kirch1) [LinkedIn](https://www.linkedin.com/in/jason-kirchman) | **Elle Majors** [Github](https://github.com/Elle-M) [LinkedIn](https://www.linkedin.com/in/ellemajors) | **Hady Matar** [Github](https://github.com/hadyematar23) [LinkedIn](https://www.linkedin.com/in/hady-emmanuel-matar) | **Conner Van Loan** [Github](https://github.com/C-V-L) [LinkedIn](https://www.linkedin.com/in/conner-van-loan) |
+
   
 
 
