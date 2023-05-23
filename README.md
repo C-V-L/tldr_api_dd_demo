@@ -1,10 +1,11 @@
-## Welcome to TLDR 
+<h1 align="center"> Welcome to TLDR  </h1>
 
 ---
 
 ---
 
-![tlfr_logo](https://github.com/TooLong-DidntRead/tldr_api/assets/113124260/94245722-0389-4ad1-9fa2-af8136e8368b)
+![tldr](https://github.com/TooLong-DidntRead/tldr_api/assets/113124260/bcb62c63-9146-4cd0-9330-a22ea2a9f097)
+
 
 ## Table of Contents
 - [Product Overview](#product-overview)
