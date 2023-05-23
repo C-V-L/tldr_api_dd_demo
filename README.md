@@ -57,7 +57,10 @@ Our web platform is a tool that helps you understand the terms and conditions of
 
 ![ChatGPT](https://img.shields.io/badge/chatGPT-74aa9c?style=for-the-badge&logo=openai&logoColor=white)
 
-<!-- ## Database Schema -->
+## Database Schema
+
+<img width="674" alt="tldr_schema" src="https://github.com/TooLong-DidntRead/tldr_api/assets/113124260/bda73268-db80-436c-a057-dba769880ee7">
+
 
 ## Endpoints
 
