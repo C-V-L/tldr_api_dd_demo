@@ -60,8 +60,7 @@ Our web platform is a tool that helps you understand the terms and conditions of
 
 ## Database Schema
 
-<img width="674" alt="tldr_schema" src="https://github.com/TooLong-DidntRead/tldr_api/assets/113124260/bda73268-db80-436c-a057-dba769880ee7">
-
+<img width="950" alt="tldr_schema" src="https://github.com/TooLong-DidntRead/tldr_api/assets/113124260/de71f765-e315-41f5-a953-7984403b938d">
 
 ## Endpoints
 
@@ -85,7 +84,6 @@ Our web platform is a tool that helps you understand the terms and conditions of
   | `tos` | Required | string | Terms of Service
   | `concerns` | Optional | string | User Concerns
 
-<!--   <i>Note: </i> -->
   <br>
 
   Response: 
@@ -189,7 +187,7 @@ Our web platform is a tool that helps you understand the terms and conditions of
 
  ## Contributors 
 
-| **Isaac Alter** [Github](https://github.com/Isaac3924) [LinkedIn](https://www.linkedin.com/in/isaacalter) | | **Axel De La Guardia** [Github](https://github.com/axeldelaguardia) [LinkedIn](https://www.linkedin.com/in/axeldelaguardia) | **Elle Majors** [Github](https://github.com/Elle-M) [LinkedIn](https://www.linkedin.com/in/ellemajors) | **Hady Matar** [Github](https://github.com/hadyematar23) [LinkedIn](https://www.linkedin.com/in/hady-emmanuel-matar) | **Conner Van Loan** [Github](https://github.com/C-V-L) [LinkedIn](https://www.linkedin.com/in/conner-van-loan) |
+| **Isaac Alter** [Github](https://github.com/Isaac3924) [LinkedIn](https://www.linkedin.com/in/isaacalter) | **Axel De La Guardia** [Github](https://github.com/axeldelaguardia) [LinkedIn](https://www.linkedin.com/in/axeldelaguardia) | **Elle Majors** [Github](https://github.com/Elle-M) [LinkedIn](https://www.linkedin.com/in/ellemajors) | **Hady Matar** [Github](https://github.com/hadyematar23) [LinkedIn](https://www.linkedin.com/in/hady-emmanuel-matar) | **Conner Van Loan** [Github](https://github.com/C-V-L) [LinkedIn](https://www.linkedin.com/in/conner-van-loan) |
 
   
 
