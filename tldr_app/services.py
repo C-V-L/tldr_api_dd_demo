@@ -15,7 +15,7 @@ class QueryGPT():
       try:
         result = Result(response=json.loads(str(response)), query=query[0])
       except:
-        result = Result(response=str(error_response(area_of_focus)), query=query[0])
+        result = Result(response=json.loads(str(error_response(area_of_focus))), query=query[0])
       result.save()
       responses.append(result)
     return responses
@@ -29,7 +29,7 @@ class QueryGPT():
 
 def query_to_file(query):
   if len(query) == 1:
-    file = open('data/tos.txt', 'w')
+    file = open('data/tos.txt', 'w')  
     file.write(query[0].tos)
     file.close()
     query_engine = create_query_engine(directory='data')
@@ -67,7 +67,7 @@ def error_response(focus):
 				"title": "%s",
         "impact": "We were unable to get our pal ChatGPT to do something useful, please try again.",
         "actionable": "Please try again",
-        "ranking": "n/a"
+        "ranking": 0
       }
       """ % focus
   return format
