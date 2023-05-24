@@ -34,18 +34,19 @@ class Tos(models.Model):
 			if not self.tos:
 				raise ValidationError(_('All fields must be filled in.'))
 			
-class TosComparisons(models.Model):
-		tos = models.ForeignKey(Tos, on_delete=models.CASCADE)
-		comparisons = ArrayField(models.CharField(max_length=200), blank=True, default=list)
-
-		def clean(self):
-			if not self.tos:
-				raise ValidationError(_('All fields must be filled in.'))
-			
 class Comparison(models.Model):
 		response = models.JSONField(default=dict)
 		user = models.ForeignKey(User, on_delete=models.CASCADE, default=1)
 		
 		def clean(self):
-			if not self.tos:
+			if not self.response or not self.user:
 				raise ValidationError(_('All fields must be filled in.'))
+			
+class TosComparisons(models.Model):
+		tos = models.ForeignKey(Tos, on_delete=models.CASCADE)
+		comparison = models.ForeignKey(Comparison, on_delete=models.CASCADE)
+
+		def clean(self):
+			if not self.tos or not self.comparison:
+				raise ValidationError(_('All fields must be filled in.'))
+			
