@@ -1,0 +1,53 @@
+interactions:
+- request:
+    body: '{"user": 1, "areas_of_focus": ["mandatory binding arbitration", "recurring
+      payments"], "tos1": "Netflix Terms of Use\nNetflix provides a personalized subscription
+      service that allows our members to access entertainment content ", "tos2": "Spotify
+      Terms of Use\\Spotify provides a subscription based service that allows our
+      members to access audio content "}'
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '357'
+      Content-Type:
+      - application/json
+      User-Agent:
+      - python-requests/2.29.0
+    method: POST
+    uri: http://localhost:8000/api/v1/compare
+  response:
+    body:
+      string: '{"title":"terms_of_service","company_1":"Netflix","company_2":"Spotify","comparison":"Netflix
+        provides a personalized subscription service that allows members to access
+        entertainment content, while Spotify provides a subscription based service
+        that allows members to access audio content."}'
+    headers:
+      Allow:
+      - POST, OPTIONS
+      Content-Length:
+      - '290'
+      Content-Type:
+      - application/json
+      Cross-Origin-Opener-Policy:
+      - same-origin
+      Date:
+      - Wed, 24 May 2023 20:57:43 GMT
+      Referrer-Policy:
+      - same-origin
+      Server:
+      - WSGIServer/0.2 CPython/3.11.3
+      Vary:
+      - Cookie, origin
+      X-Content-Type-Options:
+      - nosniff
+      X-Frame-Options:
+      - DENY
+    status:
+      code: 201
+      message: Created
+version: 1

@@ -36,6 +36,7 @@ class CompareApiView(APIView):
 	parser_classes = [MultiPartParser, JSONParser]
 
 	def post(self, request, *args, **kwargs):
+		breakpoint()
 		if 'user' not in request.data.keys():
 			return Response({"user": ["This field is required."]}, status=status.HTTP_400_BAD_REQUEST)
 		if request.FILES:

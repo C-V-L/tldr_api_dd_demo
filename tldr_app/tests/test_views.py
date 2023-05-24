@@ -15,7 +15,7 @@ from tldr_app.models import *
 from tldr_app.serializers import QuerySerializer
 from tldr_app.services import QueryGPT
 
-# Perhaps another push will rectofy this issue
+# Perhaps another push will rectify this issue
 client = APIClient()
 
 def test_health_check_view():
@@ -131,3 +131,28 @@ def test_post_individual_nonvalid_unit_test(db):
 
     # mock_query_serializer.assert_called_once_with(data=request.data)
     # mock_instance.is_valid.assert_called_once()
+
+		# Testing CompareApiView
+
+COMPARE_URL = 'http://localhost:8000/api/v1/compare'
+
+def test_post_compare(db):
+    User.objects.create(name="Hady")
+    payload = {
+			"user": 1,
+			"areas_of_focus": ["mandatory binding arbitration", "recurring payments"],
+			"tos1": "Netflix Terms of Use\nNetflix provides a personalized subscription service that allows our members to access entertainment content ",
+			"tos2": "Spotify Terms of Use\Spotify provides a subscription based service that allows our members to access audio content "
+		}
+    
+    headers = {'Content-Type': 'application/json'}
+    
+    with my_vcr.use_cassette('fixtures/vcr_cassettes/json_compare.yaml'):
+      response = requests.post(COMPARE_URL, data=json.dumps(payload), headers=headers)
+      assert response.status_code == 201
+      response_data = response.json()
+      assert isinstance(response_data, dict)
+      assert isinstance(response_data['title'], str)
+      assert isinstance(response_data['company_1'], str)
+      assert isinstance(response_data['company_2'], str)
+      assert isinstance(response_data['comparison'], str)
