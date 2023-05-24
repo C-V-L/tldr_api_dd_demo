@@ -6,10 +6,11 @@ from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework.parsers import MultiPartParser, JSONParser
 from .models import *
-from .serializers import UserSerializer, QuerySerializer, ResultSerializer
+from .serializers import *
 from .renderers import CustomJSONRenderer
 from .services import *
 import PyPDF2
+import string
 
 class HealthCheckView(View):
 	def get(self, request):
@@ -30,6 +31,52 @@ class UserApiView(APIView):
 			return Response(serializer.data, status=status.HTTP_201_CREATED)
 		return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
+class CompareApiView(APIView):
+	renderer_classes = [CustomJSONRenderer]
+	parser_classes = [MultiPartParser, JSONParser]
+
+	def post(self, request, *args, **kwargs):
+		if 'user' not in request.data.keys():
+			return Response({"user": ["This field is required."]}, status=status.HTTP_400_BAD_REQUEST)
+		if request.FILES:
+			processed_file_1 = process_request_data(data=request.data, file_name='file1')
+			tos_serializer_1 = TosSerializer(data=processed_file_1)
+			if tos_serializer_1.is_valid():
+				tos_1 = tos_serializer_1.save()
+			processed_file_2 = process_request_data(data=request.data, file_name='file2')
+			tos_serializer_2 = TosSerializer(data=processed_file_2)
+			if tos_serializer_2.is_valid():
+				tos_2 = tos_serializer_2.save()
+			result = QueryGPT.compare(self, [tos_1, tos_2])
+			serializer = ComparisonSerializer(result, many=False)
+			return Response(serializer.data, status=status.HTTP_201_CREATED)
+
+		elif 'tos1' in request.data.keys() and 'tos2' in request.data.keys():
+			request.data['tos'] = request.data['tos1']
+			tos_serializer_1 = TosSerializer(data=request.data)
+			if tos_serializer_1.is_valid():
+				tos_1 = tos_serializer_1.save()
+			request.data['tos'] = request.data['tos2']
+			tos_serializer_2 = TosSerializer(data=request.data)
+			if tos_serializer_2.is_valid():
+				tos_2 = tos_serializer_2.save()
+			result = QueryGPT.compare(self, [tos_1, tos_2])
+			serializer = ComparisonSerializer(result, many=False)
+			return Response(serializer.data, status=status.HTTP_201_CREATED)
+		else:
+			return Response("test", status=status.HTTP_400_BAD_REQUEST)
+
+def compare_files(request):
+		processed_file_1 = process_request_data(data=request.data, file_name='file1')
+		tos_serializer_1 = TosSerializer(data=processed_file_1)
+		if tos_serializer_1.is_valid():
+			tos_1 = tos_serializer_1.save()
+			
+		processed_file_2 = process_request_data(data=request.data, file_name='file2')
+		tos_serializer_2 = TosSerializer(data=processed_file_2)
+		if tos_serializer_2.is_valid():
+			tos_2 = tos_serializer_2.save()
+		return [tos_1, tos_2]
 
 class QueryApiView(APIView):
 	renderer_classes = [CustomJSONRenderer]
@@ -41,13 +88,16 @@ class QueryApiView(APIView):
 		return Response(serializer.data, status=status.HTTP_200_OK)
 
 	def post(self, request, *args, **kwargs):
+		if 'user' not in request.data.keys():
+			return Response({"user": ["This field is required."]}, status=status.HTTP_400_BAD_REQUEST)
 		if request.FILES:
-			query_serializer = QuerySerializer(data=process_request_data(request.data))
+			processed_file = process_request_data(data=request.data, file_name='file')
+			query_serializer = QuerySerializer(data=processed_file)
 		else:
 			query_serializer = QuerySerializer(data=request.data)
 		if query_serializer.is_valid():
 			query = query_serializer.save()
-			results = QueryGPT.initiate_query(self, query)
+			results = QueryGPT.initiate_query(self, [query])
 			serializer = ResultSerializer(results, many=True)
 			return Response(serializer.data, status=status.HTTP_201_CREATED)
 		else:
@@ -59,10 +109,11 @@ def process_uploaded_file(file):
 	for page in pdf_reader.pages:
 		page_content = page.extract_text()
 		combined_content += page_content
+	combined_content = ''.join(char for char in combined_content if char in string.printable)
 	return combined_content
 
-def process_request_data(data):
-	data['tos'] = process_uploaded_file(data['file'])
+def process_request_data(data, file_name):
+	data['tos'] = process_uploaded_file(data[file_name])
 	data['user'] = int(data.get('user'))
-	del data['file']
+	del data[file_name]
 	return data
