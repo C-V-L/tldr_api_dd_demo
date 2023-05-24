@@ -19,7 +19,7 @@ class CompareTest(APITestCase):
 			my_vcr = vcr.VCR(
     		filter_headers=['Authorization'],
 				)
-			with my_vcr.use_cassette('fixtures/vcr_cassettes/json_compare.yaml'):
+			with my_vcr.use_cassette('fixtures/vcr_cassettes/json_compare1.yaml'):
 				response = self.client.post(url, payload, format='json')
 				assert response.status_code == 201
 				response_data = response.json()
