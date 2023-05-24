@@ -13,11 +13,11 @@ class QueryGPT():
     responses = []
     json_string = query_response_format()
     for area_of_focus in query.areas_of_focus:
-      response = query_engine.query(f"I am providing you the terms and services of a company. You are instructed to read these terms of service and to respond to the query I have in regard to the terms of service. My query is: How does this terms of service address {area_of_focus}. Please respond with the information in the format of a json string like this: {json_string} where the key 'area_of_focus' is {area_of_focus}. Please make sure that the formatting of the json string is correct and there are no additional single or double quotes other than what a json string would require")
+      response = query_engine.query(f"I am providing you the terms and services of a company. You are instructed to read these terms of service and to respond to the query I have in regard to the terms of service. My query is: How does this terms of service address {area_of_focus}. Please respond with the information in the format of a json string like this: {json_string} where the key 'area_of_focus' is {area_of_focus}. Please make sure that the formatting of the json string is correct and there are no additional single or double quotes other than what a json string would require. Keep responses to 500 characters or less.")
       try:
         result = Result(response=json.loads(str(response)), query=query)
       except:
-        result = Result(response=str(error_response(area_of_focus)), query=query)
+        result = Result(response=json.loads(str(error_response(area_of_focus))), query=query)
       result.save()
       responses.append(result)
     return responses
@@ -50,7 +50,7 @@ def error_response(focus):
 				"title": "%s",
         "impact": "We were unable to get our pal ChatGPT to do something useful, please try again.",
         "actionable": "Please try again",
-        "ranking": "n/a"
+        "ranking": 0
       }
       """ % focus
   return format
