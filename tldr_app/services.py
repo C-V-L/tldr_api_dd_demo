@@ -15,7 +15,7 @@ class QueryGPT():
       try:
         result = Result(response=json.loads(str(response)), query=query[0])
       except:
-        result = Result(response=str(error_response(area_of_focus)), query=query)
+        result = Result(response=str(error_response(area_of_focus)), query=query[0])
       result.save()
       responses.append(result)
     return responses

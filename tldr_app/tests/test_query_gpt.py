@@ -47,7 +47,7 @@ def test_query_response_format_error(db):
   with my_vcr.use_cassette('fixtures/vcr_cassettes/query_gpt_500_error.yaml'):
     with patch('llama_index.query_engine.retriever_query_engine.RetrieverQueryEngine.query') as mock_response:
       mock_response.return_value = format
-      response = query_gpt.initiate_query(random_query)
+      response = query_gpt.initiate_query([random_query])
       json_format = json.loads("""
       {
 				"title": "focus",
