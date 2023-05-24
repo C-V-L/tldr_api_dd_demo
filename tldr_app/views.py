@@ -39,34 +39,22 @@ class CompareApiView(APIView):
 		if 'user' not in request.data.keys():
 			return Response({"user": ["This field is required."]}, status=status.HTTP_400_BAD_REQUEST)
 		if request.FILES:
-			processed_file_1 = process_request_data(data=request.data, file_name='file1')
-			tos_serializer_1 = TosSerializer(data=processed_file_1)
-			if tos_serializer_1.is_valid():
-				tos_1 = tos_serializer_1.save()
-			processed_file_2 = process_request_data(data=request.data, file_name='file2')
-			tos_serializer_2 = TosSerializer(data=processed_file_2)
-			if tos_serializer_2.is_valid():
-				tos_2 = tos_serializer_2.save()
-			result = QueryGPT.compare(self, [tos_1, tos_2])
-			serializer = ComparisonSerializer(result, many=False)
-			return Response(serializer.data, status=status.HTTP_201_CREATED)
-
+			processed_files = process_files(request)
+			serialized_results = serialize_results(self, processed_files)
+			return Response(serialized_results, status=status.HTTP_201_CREATED)
 		elif 'tos1' in request.data.keys() and 'tos2' in request.data.keys():
-			request.data['tos'] = request.data['tos1']
-			tos_serializer_1 = TosSerializer(data=request.data)
-			if tos_serializer_1.is_valid():
-				tos_1 = tos_serializer_1.save()
-			request.data['tos'] = request.data['tos2']
-			tos_serializer_2 = TosSerializer(data=request.data)
-			if tos_serializer_2.is_valid():
-				tos_2 = tos_serializer_2.save()
-			result = QueryGPT.compare(self, [tos_1, tos_2])
-			serializer = ComparisonSerializer(result, many=False)
-			return Response(serializer.data, status=status.HTTP_201_CREATED)
+			tos_array = tos_serializer(data=request.data)
+			serialized_results = serialize_results(self, tos_array)
+			return Response(serialized_results, status=status.HTTP_201_CREATED)
 		else:
 			return Response({"error": ["Need files or tos1/tos2"]}, status=status.HTTP_400_BAD_REQUEST)
 
-def compare_files(request):
+def serialize_results(self, processed_files):
+  result = QueryGPT.compare(self, processed_files)
+  serialize_results = ComparisonSerializer(result, many=False)
+  return serialize_results.data
+
+def process_files(request):
 		processed_file_1 = process_request_data(data=request.data, file_name='file1')
 		tos_serializer_1 = TosSerializer(data=processed_file_1)
 		if tos_serializer_1.is_valid():
@@ -77,6 +65,17 @@ def compare_files(request):
 		if tos_serializer_2.is_valid():
 			tos_2 = tos_serializer_2.save()
 		return [tos_1, tos_2]
+
+def tos_serializer(data):
+	data['tos'] = data['tos1']
+	tos_serializer_1 = TosSerializer(data=data)
+	if tos_serializer_1.is_valid():
+		tos_1 = tos_serializer_1.save()
+		data['tos'] = data['tos2']
+	tos_serializer_2 = TosSerializer(data=data)
+	if tos_serializer_2.is_valid():
+		tos_2 = tos_serializer_2.save()
+	return [tos_1, tos_2]
 
 class QueryApiView(APIView):
 	renderer_classes = [CustomJSONRenderer]

@@ -53,9 +53,9 @@ def test_query_response_format_error(db):
 				"title": "focus",
         "impact": "We were unable to get our pal ChatGPT to do something useful, please try again.",
         "actionable": "Please try again",
-        "ranking": "n/a"
+        "ranking": 0
       }""")
-      json_response = json.loads(response[1].response)
+      json_response = response[1].response
       assert json_response == json_format
 
 def test_query_to_file(db):
