@@ -23,3 +23,20 @@ class ResultSerializer(serializers.ModelSerializer):
     class Meta:
         model = Result
         fields = ['title', 'impact', 'actionable', 'ranking']
+        
+class TosSerializer(serializers.ModelSerializer):
+    tos = serializers.CharField(required=True)
+    
+    class Meta:
+        model = Tos
+        fields = ['tos']
+        
+class ComparisonSerializer(serializers.ModelSerializer):
+    title = serializers.CharField(source='response.title')
+    company_1 = serializers.CharField(source='response.company_1')
+    company_2 = serializers.CharField(source='response.company_2')
+    comparison = serializers.CharField(source='response.comparison')
+
+    class Meta:
+        model = Comparison
+        fields = ['title', 'company_1', 'company_2', 'comparison']
