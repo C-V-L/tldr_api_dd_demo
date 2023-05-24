@@ -64,7 +64,7 @@ class CompareApiView(APIView):
 			serializer = ComparisonSerializer(result, many=False)
 			return Response(serializer.data, status=status.HTTP_201_CREATED)
 		else:
-			return Response("test", status=status.HTTP_400_BAD_REQUEST)
+			return Response({"error": ["Need files or tos1/tos2"]}, status=status.HTTP_400_BAD_REQUEST)
 
 def compare_files(request):
 		processed_file_1 = process_request_data(data=request.data, file_name='file1')
