@@ -1,1 +1,1 @@
-web: gunicorn tldr_api.wsgi:application --log-file -
+web: gunicorn tldr_api.wsgi
