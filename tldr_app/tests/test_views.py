@@ -2,7 +2,7 @@ import pytest
 import requests
 import json
 import vcr
-from rest_framework.test import APIClient
+from rest_framework.test import APIClient, APITestCase
 from django.test import RequestFactory
 from unittest.mock import patch, MagicMock
 from tldr_app.views import QueryApiView
@@ -60,7 +60,7 @@ def test_post_request_make_query():
       "tos": "Netflix Terms of Use\nNetflix provides a personalized subscription service that allows our members to access entertainment content "
     }
     headers = {'Content-Type': 'application/json'}
-    # This is the path to the cassette that was being used in the previosu test file test_queries_api_calls.py It's being
+    # This is the path to the cassette that was being used in the previous test file test_queries_api_calls.py It's being
     # used here now and should be passing all below tests.
     with my_vcr.use_cassette('fixtures/vcr_cassettes/synopsis3.yaml'):
       response = requests.post(POST_URL, data=json.dumps(payload), headers=headers)
@@ -126,3 +126,11 @@ def test_post_individual_nonvalid_unit_test(db):
     # mock_instance.is_valid.assert_called_once()
 
 		# Testing CompareApiView
+
+# class QueryTest(APITestCase):
+#     def setUp(self):
+#         self.client = APIClient()
+#         self.user = User.objects.create(name="Hady")
+        
+#     def test_post_no_user(self):
+#         self.
