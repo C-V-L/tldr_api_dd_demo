@@ -50,9 +50,12 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'rest_framework', 
     'tldr_app',
-    'corsheaders',
-    'tldr_api'
+    'corsheaders'
 ]
+
+CELERY_RESULT_BACKEND = 'django-db'
+CELERY_BROKER_URL = 'redis://localhost:6379'
+CELERY_BEAT_SCHEDULER = 'django_celery_beat.schedulers.DatabaseScheduler'
 
 MIDDLEWARE = [
     'corsheaders.middleware.CorsMiddleware', # CORS
