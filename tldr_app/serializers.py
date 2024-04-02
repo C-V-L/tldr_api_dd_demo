@@ -1,6 +1,6 @@
 from rest_framework import serializers
 from .models import *
-
+import pdb
 class UserSerializer(serializers.ModelSerializer):
     class Meta:
         model = User
@@ -15,6 +15,7 @@ class QuerySerializer(serializers.ModelSerializer):
 				fields = ['id', 'user', 'areas_of_focus', 'tos']
 
 class ResultSerializer(serializers.ModelSerializer):
+    # pdb.set_trace()
     title = serializers.CharField(source='response.title')
     impact = serializers.CharField(source='response.impact')
     actionable = serializers.CharField(source='response.actionable')

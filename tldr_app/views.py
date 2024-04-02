@@ -10,7 +10,7 @@ from .serializers import UserSerializer, QuerySerializer, ResultSerializer
 from .renderers import CustomJSONRenderer
 from .services import *
 import PyPDF2
-
+import pdb
 class HealthCheckView(View):
 	def get(self, request):
 		return HttpResponse(status=200)
@@ -48,6 +48,7 @@ class QueryApiView(APIView):
 		if query_serializer.is_valid():
 			query = query_serializer.save()
 			results = QueryGPT.initiate_query(self, query)
+			# pdb.set_trace()
 			serializer = ResultSerializer(results, many=True)
 			return Response(serializer.data, status=status.HTTP_201_CREATED)
 		else:

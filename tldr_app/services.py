@@ -1,6 +1,6 @@
 import os
 from decouple import config
-from llama_index import GPTVectorStoreIndex, SimpleDirectoryReader
+from llama_index import VectorStoreIndex, SimpleDirectoryReader
 from .models import *
 import json
 
@@ -13,7 +13,7 @@ class QueryGPT():
     responses = []
     json_string = query_response_format()
     for area_of_focus in query.areas_of_focus:
-      response = query_engine.query(f"I am providing you the terms and services of a company. You are instructed to read these terms of service and to respond to the query I have in regard to the terms of service. My query is: How does this terms of service address {area_of_focus}. Please respond with the information in the format of a json string like this: {json_string} where the key 'area_of_focus' is {area_of_focus}. Please make sure that the formatting of the json string is correct and there are no additional single or double quotes other than what a json string would require. Keep responses to 500 characters or less.")
+      response = query_engine.query(f"I am providing you the terms and services of a company. You are instructed to read these terms of service and to respond to the query I have in regard to the terms of service. My query is: How does this terms of service address {area_of_focus}. Please respond with the information in the format of a json string like this: {json_string} where the key 'title' is {area_of_focus}. Please make sure that the formatting of the json string is correct and there are no additional single or double quotes other than what a json string would require. Keep responses to 500 characters or less.")
       try:
         result = Result(response=json.loads(str(response)), query=query)
       except:
@@ -29,7 +29,7 @@ def query_to_file(query):
 
 def create_query_engine():
     documents = SimpleDirectoryReader('data').load_data()
-    index = GPTVectorStoreIndex.from_documents(documents=documents)
+    index = VectorStoreIndex.from_documents(documents=documents)
     query_engine = index.as_query_engine()
     return query_engine
 
