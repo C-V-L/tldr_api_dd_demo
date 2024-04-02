@@ -60,8 +60,10 @@ my_vcr = vcr.VCR(
     filter_headers=['Authorization'],
 )
 def test_post_request_make_query():
+    # user = User.objects.create(name="Hady")
+
     payload = {
-      "user": 6,
+      "user": '1',
       "areas_of_focus": ["mandatory binding arbitration", "recurring payments"],
       "tos": "Netflix Terms of Use\nNetflix provides a personalized subscription service that allows our members to access entertainment content "
     }
@@ -70,7 +72,6 @@ def test_post_request_make_query():
     # used here now and should be passing all below tests.
     with my_vcr.use_cassette('fixtures/vcr_cassettes/synopsis3.yaml'):
       response = requests.post(POST_URL, data=json.dumps(payload), headers=headers)
-    #   breakpoint()
       assert response.status_code == 201
       response_data = response.json()
       assert isinstance(response_data, dict)

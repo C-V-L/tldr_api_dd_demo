@@ -1,6 +1,6 @@
 interactions:
 - request:
-    body: '{"user": 6, "areas_of_focus": ["mandatory binding arbitration", "recurring
+    body: '{"user": "1", "areas_of_focus": ["mandatory binding arbitration", "recurring
       payments"], "tos": "Netflix Terms of Use\nNetflix provides a personalized subscription
       service that allows our members to access entertainment content "}'
     headers:
@@ -11,7 +11,7 @@ interactions:
       Connection:
       - keep-alive
       Content-Length:
-      - '228'
+      - '230'
       Content-Type:
       - application/json
       User-Agent:
@@ -20,32 +20,28 @@ interactions:
     uri: http://localhost:8000/api/v1/queries
   response:
     body:
-      string: '{"data":[{"title":"mandatory binding arbitration","impact":"The terms
-        of service state that any dispute between the user and Netflix must be resolved
-        through binding arbitration. This means that the user cannot take Netflix
-        to court and must instead resolve any disputes through arbitration.","actionable":"The
-        user can opt out of the arbitration clause by sending a written notice to
-        Netflix within 30 days of agreeing to the terms of service.","ranking":5},{"title":"recurring
-        payments","impact":"Netflix''s terms of service outlines that members will
-        be charged a recurring fee for their subscription service. The terms of service
-        also outlines that members can cancel their subscription at any time.","actionable":"Members
-        can cancel their subscription at any time by visiting their account page and
-        selecting the cancel subscription option.","ranking":8}]}'
+      string: '{"data":[{"title":"mandatory binding arbitration","impact":"Impacts
+        how disputes are resolved, favoring the company''s interests.","actionable":"May
+        limit legal options for consumers, potentially affecting recourse.","ranking":8},{"title":"recurring
+        payments","impact":"The terms of service specify the frequency and amount
+        of recurring payments for the subscription service.","actionable":"Consumers
+        are informed about how to manage or cancel recurring payments through their
+        account settings.","ranking":6}]}'
     headers:
       Allow:
       - GET, POST, HEAD, OPTIONS
       Content-Length:
-      - '860'
+      - '509'
       Content-Type:
       - application/json
       Cross-Origin-Opener-Policy:
       - same-origin
       Date:
-      - Tue, 23 May 2023 16:28:15 GMT
+      - Tue, 02 Apr 2024 20:31:11 GMT
       Referrer-Policy:
       - same-origin
       Server:
-      - WSGIServer/0.2 CPython/3.11.3
+      - WSGIServer/0.2 CPython/3.11.4
       Vary:
       - Cookie, origin
       X-Content-Type-Options:
